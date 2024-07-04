@@ -2,9 +2,15 @@
 
 
 // See https://aka.ms/new-console-template for more information
+using DSA;
+
 Console.WriteLine("Hello, World!");
+StringManipulations.palindrome("abcdcba");
+StringManipulations.palindrome("abccba");
+StringManipulations.palindrome("abccda");
+
 int[] arr = { 1, 2, 4, 5, 6 };
-LinearSearch.LinearSearch(arr, 5);
+LinearSearch.LinearSearch1(arr, 5);
 LinearSearch.SearchChar("Riyaz", 'z');
 bool searchInRange = LinearSearch.SearchInRange(arr, 4, 1, 3);
 Console.WriteLine(searchInRange);
@@ -20,7 +26,7 @@ int count = LinearSearch.FindCountOfEvenNumbersofDigits2(minArr);
 Console.WriteLine(count);
 public class LinearSearch
 {
-    public static int LinearSearch(int[] arr, int target)
+    public static int LinearSearch1(int[] arr, int target)
     {
         if (arr.Length == 0) { 
         return -1;

@@ -8,7 +8,7 @@ Console.WriteLine("Hello, World!");
 StringManipulations.palindrome("abcdcba");
 StringManipulations.palindrome("abccba");
 StringManipulations.palindrome("abccda");
-
+BSCall.CallBS();
 int[] arr = { 1, 2, 4, 5, 6 };
 LinearSearch.LinearSearch1(arr, 5);
 LinearSearch.SearchChar("Riyaz", 'z');

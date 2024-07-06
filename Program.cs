@@ -3,7 +3,7 @@
 
 // See https://aka.ms/new-console-template for more information
 using DSA;
-
+Pattern.Pattern1(4);
 Console.WriteLine("Hello, World!");
 StringManipulations.palindrome("abcdcba");
 StringManipulations.palindrome("abccba");

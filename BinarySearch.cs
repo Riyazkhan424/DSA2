@@ -236,6 +236,43 @@ namespace DSA
             }
             return valie;
         }
+
+        public static int SearchInRotatedArray(int target)
+        {
+            int[] arr = { 4,5,6,7,0,1,2,3 };
+            int pivot = FindPivot(arr);
+            if (pivot < 0)
+            {
+                return BSearch(arr, target);
+            }
+            if (arr[pivot] == target)
+            {
+                return pivot;
+            }
+
+            if (arr[pivot] < target) {
+                return BSearchWithSE(arr, target,0,pivot-1);
+            }
+             return BSearchWithSE(arr, target, pivot+1,arr.Length-1);
+
+        }
+
+        static int FindPivot(int[] arr)
+        {
+            int start = 0;
+            int end = arr.Length - 1;
+            while (start < end)
+            { 
+            int mid = start + (end - start) / 2;
+                // 4 cases
+                if (mid < end && arr[mid] > arr[mid + 1]) { return mid; }
+                else if (arr[mid] <= arr[start]) { end = mid - 1; }
+                else if (arr[mid - 1] > arr[mid]) { end = mid - 1; }
+                else { start = mid + 1; }
+
+            }
+            return -1;
+        }
     }
 
     public class BSCall
@@ -249,6 +286,7 @@ namespace DSA
             {
                 infiniteArray[i] = i * 2; // Example: even numbers
             }
+
 
             int target = 420;
             var resulr = BinarySearch.BinSearchInInfity(infiniteArray, target);

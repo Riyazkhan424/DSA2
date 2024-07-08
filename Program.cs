@@ -3,7 +3,8 @@
 
 // See https://aka.ms/new-console-template for more information
 using DSA;
-Pattern.Pattern1(4);
+Recursion.Main();
+Pattern.Pattern10(5);
 Console.WriteLine("Hello, World!");
 StringManipulations.palindrome("abcdcba");
 StringManipulations.palindrome("abccba");

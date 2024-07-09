@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -83,8 +84,84 @@ namespace DSA
                 
             return steps;
         }
+
+        static bool isArraySorted(int[] arr,int start =0 ,int end =1)
+        {
+            if(start>arr.Length- 1 || end >arr.Length -1) { return true; }
+            bool value = arr[start] < arr[end] && isArraySorted(arr, end, end + 1);
+            if (!value) return false;
+            else
+                return true;
+
+        }
+
+
+        static bool LinearSearch(int[] arr, int target , int index = 0)
+        {
+            if(index> arr.Length - 1) { return false; }
+            return arr[index] == target || LinearSearch(arr,target,index++);
+        }
+
+        static List<int> LinearSearch1(int[] arr, int target,  List<int> sol, int index = 0)
+        {
+            if (index > arr.Length - 1) { return sol; }
+            if (arr[index] == target)
+                sol.Add(index);
+            index = index + 1;
+            LinearSearch1(arr, target,sol, index);
+            return sol;
+        }
+
+        static List<int> LinearSearch2(int[] arr, int target, int index = 0)
+        {
+            List<int> sol = new List<int>();
+            if (index > arr.Length - 1) { return sol;  }
+           
+            if (arr[index] == target)
+                sol.Add(index);
+            index = index + 1;
+            sol.AddRange(LinearSearch2(arr, target, index));
+            return sol;
+        }
+
+        static void RotatedBinarySearch() { }
+
+        static void PatternViaRecurrence(int r,int c)
+        {
+            if(r == 0) { return; }
+
+            if (r > c)
+            {
+                Console.Write("*");
+                PatternViaRecurrence(r, c + 1);
+            }
+            else
+            {
+                Console.WriteLine();
+                PatternViaRecurrence(r - 1, 0);
+            }
+        }
+        static void NormalTraingle(int r, int c)
+        {
+            if (r == 0) { return; }
+
+            if (r > c)
+            {
+                NormalTraingle(r, c + 1);
+                Console.Write("*");
+                
+            }
+            else
+            {
+                NormalTraingle(r - 1, 0);
+                Console.WriteLine();
+                
+            }
+        }
         public static void Main() {
-           var value = NumberOfSteps(14);
+            NormalTraingle(4, 0);
+            int[] arr = { 1, 2, 4, 4,4,5,7, 6 };
+            var value = LinearSearch2(arr,4,0);
         }
     }
 }
